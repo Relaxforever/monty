@@ -46,4 +46,5 @@ typedef struct menu_s
 
 int has_args(char *token);
 int isa_number(char *token);
+int run_interpreter(char *filename);
 #endif
