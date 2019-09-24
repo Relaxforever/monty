@@ -40,7 +40,8 @@ typedef struct menu_s
 		char *opcode;
 		int n_args;
 		struct menu_s *next;
-}
+}menu;
+
 int has_args(char *token);
 int isa_number(char *token);
 #endif
