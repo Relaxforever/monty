@@ -8,4 +8,6 @@ include_directories(.)
 add_executable(monty
         main.c
         monty.h
+        monty_errors.c
+        monty_errors.h
 )

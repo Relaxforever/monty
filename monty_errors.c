@@ -18,6 +18,8 @@ void print_file_error(int errno, char *filename)
 				case MALLOC_FAILURE:
 										fprintf(stderr, "Error: malloc failed\n");
 										exit(EXIT_FAILURE);
+				default:
+					break;
 		}
 }
 /**
@@ -32,6 +34,8 @@ void print_arg_error(int errno, unsigned int line)
 				case PUSH_FAILURE:
 								fprintf(stderr, "L%u: usage: push integer\n", line);
 								exit(EXIT_FAILURE);
+				default:
+					break;
 		}
 }
 /**
@@ -44,13 +48,13 @@ void print_stack_error(int errno, unsigned int line)
 		switch (errno)
 		{
 				case PINT_STACK_EMPTY:
-										fprintf(stderr, "L%u: can't pint, stack
-										empty\n", line);
+										fprintf(stderr, "L%u: can't pint, stack empty\n", line);
 										exit(EXIT_FAILURE);
 				case POP_STACK_EMPTY:
-										fprintf(stderr, "L%u: can't pop an empty
-										stack\n", line);
+										fprintf(stderr, "L%u: can't pop an empty stack\n", line);
 										exit(EXIT_FAILURE);
+				default:
+					break;
 		}
 }
 /**
@@ -63,13 +67,13 @@ void print_short_failures(int errno, unsigned int line)
 		switch (errno)
 		{
 				case SWAP_SHORT_FAILURE:
-										fprintf(stderr, "L%u: can't
-										swap, stack too short\n", line);
+										fprintf(stderr, "L%u: can't swap, stack too short\n", line);
 										exit(EXIT_FAILURE);
 				case ADD_SHORT_FAILURE:
-										fprintf(stderr, "L%u: can't
-										add, stack too short\n", line);
+										fprintf(stderr, "L%u: can't add, stack too short\n", line);
 										exit(EXIT_FAILURE);
+				default:
+					break;
 		}
 }
 /**
@@ -83,8 +87,9 @@ void print_instr_error(int errno, unsigned int line, char *opcode)
 		switch (errno)
 		{
 				case INVALID_INSTRUCTION:
-										fprintf(stderr, "L%u: unknown
-										instruction %s\n", opcode);
+										fprintf(stderr, "L%u: unknown instruction %s\n", line, opcode);
 										exit(EXIT_FAILURE);
+				default:
+					break;
 		}
 }
