@@ -11,4 +11,11 @@
 #define SWAP_SHORT_FAILURE 8
 #define ADD_SHORT_FAILURE 9
 
+void print_file_error(int errno, char *filename);
+void print_arg_error(int errno, unsigned int line);
+void print_stack_error(int errno, unsigned int line);
+void print_short_failures(int errno, unsigned int line);
+void print_instr_error(int errno, unsigned int line, char *opcode);
+
+
 #endif 
