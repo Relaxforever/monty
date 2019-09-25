@@ -53,7 +53,7 @@ menu **opcode_list(void);
 void push_numberstack(stack_t **head, unsigned int line_number);
 int file_processor(FILE *file);
 void free_opcodelist(menu *head);
-int isa_opcode(menu **oplist, char *token);
+menu *isa_opcode(menu **oplist, char *token);
 int pushval;
 
 #endif
