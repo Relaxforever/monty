@@ -26,7 +26,6 @@ menu *create_opstruct(menu **head, char *opname, int n_args)
 menu **opcode_list(void)
 {
 		menu **head;
-		int cont;
 
 		head = malloc(sizeof(400));
 		*head = NULL;
@@ -37,11 +36,6 @@ menu **opcode_list(void)
 		create_opstruct(head, "swap", 0);
 		create_opstruct(head, "add", 0);
 		create_opstruct(head, "nop", 0);
-		/** recolalo con un for que funciona
-		* con (*head) != NULL
-		* falta cambiar el nombre de este main a
-		* que sea una función que retorne una
-		* lista
-		*/
+
 		return (head);
 }

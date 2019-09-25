@@ -50,5 +50,6 @@ int run_interpreter(char *filename);
 menu *create_opstruct(menu **head, char *opname, int n_args)
 menu **opcode_list(void);
 stack_t *push_numberstack(stack_t **head, const int n);
+int file_processor(FILE *file);
 
 #endif
