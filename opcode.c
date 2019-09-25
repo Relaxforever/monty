@@ -9,7 +9,7 @@
 */
 menu *create_opstruct(menu **head, char *opname, int n_args)
 {
-		menu *ptr;
+	menu *ptr;
 
 	if (head == NULL)
 		return (NULL);
