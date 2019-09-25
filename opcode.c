@@ -15,7 +15,7 @@ menu *create_opstruct(menu **head, char *opname, int n_args)
 		return (NULL);
 	ptr = malloc(sizeof(menu));
 	if (ptr == NULL)
-		print_file_error(MALLOC_FAILURE, NULL);
+		return (NULL);
 	if (*head == NULL)
 	{
 		*head = ptr;
