@@ -42,14 +42,15 @@ typedef struct menu_s
 		char *opcode;
 		int n_args;
 		struct menu_s *next;
-}menu;
+} menu;
 
+static int pushval;
 int has_args(char *token);
 int isa_number(char *token);
 int run_interpreter(char *filename);
 menu *create_opstruct(menu **head, char *opname, int n_args);
 menu **opcode_list(void);
-stack_t *push_numberstack(stack_t **head, unsigned int line_number);
+void *push_numberstack(stack_t **head, unsigned int line_number);
 int file_processor(FILE *file);
 void free_opcodelist(menu *head);
 int isa_opcode(menu **oplist, char *token);

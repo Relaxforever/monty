@@ -10,6 +10,7 @@ void *push_numberstack(stack_t **head, unsigned int line_number)
 {
 	stack_t *ptr;
 
+	(void) line_number;
 	ptr = malloc(sizeof(stack_t));
 	if (ptr == NULL)
 	{
