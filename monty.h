@@ -47,4 +47,6 @@ typedef struct menu_s
 int has_args(char *token);
 int isa_number(char *token);
 int run_interpreter(char *filename);
+menu *create_opstruct(menu **head, char *opname, int n_args)
+menu **opcode_list(void);
 #endif
