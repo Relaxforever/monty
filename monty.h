@@ -2,6 +2,7 @@
 #define _MONTY_H_
 #include <stdlib.h>
 #include <stdio.h>
+extern int pushval;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -53,5 +54,6 @@ void push_numberstack(stack_t **head, unsigned int line_number);
 int file_processor(FILE *file);
 void free_opcodelist(menu *head);
 int isa_opcode(menu **oplist, char *token);
+int pushval;
 
 #endif

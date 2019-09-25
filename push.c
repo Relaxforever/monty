@@ -8,7 +8,6 @@
 */
 void push_numberstack(stack_t **head, unsigned int line_number)
 {
-	extern int pushval;
 	stack_t *ptr;
 
 	(void) line_number;
@@ -31,4 +30,25 @@ void push_numberstack(stack_t **head, unsigned int line_number)
 	ptr->prev = NULL;
 	ptr->n = pushval;
 	*head = ptr;
+}
+/**
+* pall_numberstack - shows all the stack.
+*@head: the list
+*@line_number: the line number.
+*/
+void pall_numberstack(stack_t **head, unsigned int line_number)
+{
+	int cont = 0;
+	stack_t *tmp;
+
+	(void) line_number;
+	tmp = *head;
+	if (tmp != NULL)
+	{
+		for (tmp = 0; tmp != NULL; cont++)
+		{
+			printf("%d\n", tmp->n);
+			tmp = tmp->next;
+		}
+	}
 }
