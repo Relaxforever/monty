@@ -52,5 +52,6 @@ menu **opcode_list(void);
 stack_t *push_numberstack(stack_t **head, const int n);
 int file_processor(FILE *file);
 void free_opcodelist(menu *head);
+int isa_opcode(menu **oplist, char *token);
 
 #endif
