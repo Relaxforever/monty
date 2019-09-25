@@ -44,7 +44,7 @@ typedef struct menu_s
 		struct menu_s *next;
 } menu;
 
-static int pushval;
+extern int pushval;
 int has_args(char *token);
 int isa_number(char *token);
 int run_interpreter(char *filename);
