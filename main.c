@@ -2,6 +2,8 @@
 #include "monty_errors.h"
 #include <stdio.h>
 
+int pushval;
+
 /**
  * main - Entry point to monty
  * @argc: Arg count

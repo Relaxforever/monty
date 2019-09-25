@@ -6,8 +6,9 @@
 *@line_number: the line number that will be added.
 *Return: the list with the new node
 */
-void *push_numberstack(stack_t **head, unsigned int line_number)
+void push_numberstack(stack_t **head, unsigned int line_number)
 {
+	extern int pushval;
 	stack_t *ptr;
 
 	(void) line_number;

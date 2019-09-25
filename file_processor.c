@@ -4,23 +4,22 @@
 int file_processor(FILE *file)
 {
 	menu **opcodes;
-	// static int pushval = 0;
+	extern int pushval;
 	size_t getline_size = 0;
 	char *line_buffer = NULL;
 
 	opcodes = opcode_list();
-
-	while (!feof(file))
+	if (opcodes == NULL)
 	{
-		if (opcodes == NULL)
-		{
-			fclose(file);
-			if (line_buffer != NULL)
-				free(line_buffer);
-			print_file_error(MALLOC_FAILURE, NULL);
-		}
-		getline(&line_buffer, &getline_size, file);
+		fclose(file);
+		print_file_error(MALLOC_FAILURE, NULL);
+	}
+
+	while (getline(&line_buffer, &getline_size, file) != EOF)
+	{
+		pushval = 1;
 		printf("%s",line_buffer);
+		printf("%d\n", pushval);
 	}
 
 	fclose(file);
