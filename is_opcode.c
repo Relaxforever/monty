@@ -7,7 +7,7 @@
 * @token: the token with the name
 * Return: One if it is and zero.
 */
-int isa_opcode(menu **oplist, char *token)
+menu *isa_opcode(menu **oplist, char *token)
 {
 	menu *tmp;
 	unsigned int count;
@@ -17,9 +17,9 @@ int isa_opcode(menu **oplist, char *token)
 	{
 		if (strcmp(tmp->opcode, token) == 0)
 		{
-			return (1);
+			return (tmp);
 		}
 		tmp = tmp->next;
 	}
-	return (0);
+	return (NULL);
 }
