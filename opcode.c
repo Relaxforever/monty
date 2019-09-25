@@ -44,29 +44,42 @@ menu **opcode_list(void)
 	menu **head;
 
 	head = malloc(sizeof(menu *) * 1);
-	head = NULL;
-	create_opstruct(head, "push", 1);
-	if (*head == NULL)
+	*head = NULL;
+	if (create_opstruct(head, "push", 1) == NULL)
+	{
 		free_opcodelist(*head);
 		return (NULL);
+	}
 	if (create_opstruct(head, "pall", 0) == NULL)
+	{
 		free_opcodelist(*head);
 		return (NULL);
+	}
 	if (create_opstruct(head, "pint", 0) == NULL)
+	{
 		free_opcodelist(*head);
 		return (NULL);
+	}
 	if (create_opstruct(head, "pop", 0) == NULL)
+	{
 		free_opcodelist(*head);
 		return (NULL);
+	}
 	if (create_opstruct(head, "swap", 0) == NULL)
+	{
 		free_opcodelist(*head);
 		return (NULL);
+	}
 	if (create_opstruct(head, "add", 0) == NULL)
+	{
 		free_opcodelist(*head);
 		return (NULL);
+	}
 	if (create_opstruct(head, "nop", 0) == NULL)
+	{
 		free_opcodelist(*head);
 		return (NULL);
+	}
 	return (head);
 }
 /**
@@ -84,17 +97,4 @@ void free_opcodelist(menu *head)
 		head = tmp;
 	}
 	head = NULL;
-}
-
-int main (void)
-{
-	menu **opcode;
-	int cont = 0;
-	opcode = opcode_list();
-	for (cont = 0; *opcode != NULL; cont++)
-	{
-		printf("%s is the name and %d",(*opcode)->opcode, (*opcode)->n_args);
-		(*opcode) = (*opcode)->next;
-	}
-	return (0);
 }
