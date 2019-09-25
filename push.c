@@ -12,7 +12,7 @@ stack_t *push_numberstack(stack_t **head, const int n)
 
 	if (head == NULL)
 		return (NULL);
-	ptr = malloc(sizeof(dlistint_t));
+	ptr = malloc(sizeof(stack_t));
 	if (ptr == NULL)
 		print_file_error(MALLOC_FAILURE, NULL);
 	if (*head == NULL)
