@@ -5,7 +5,7 @@
 int file_processor(FILE *file)
 {
 	menu **opcodes, *operation;
-	extern int pushval;
+	context ctx;
 	size_t getline_size = 0;
 	char *line_buffer = NULL, *token, *arg;
 	unsigned int line_number = 0;
@@ -16,24 +16,28 @@ int file_processor(FILE *file)
 		fclose(file);
 		print_file_error(MALLOC_FAILURE, NULL);
 	}
+	ctx.token = NULL;
+	ctx.arg = NULL;
+	ctx.file = file;
+	ctx.buffer = NULL;
+	ctx.head = opcodes;
 	while (getline(&line_buffer, &getline_size, file) != EOF)
 	{
+		ctx.buffer = line_buffer;
 		token = strtok(line_buffer, " \n\r\t\a");
-		if (token != NULL)
+		ctx.token = token;
+		if (token != NULL) //CHECK IF IS NOT A BLANK
 		{
 			arg = strtok(NULL, " \n\r\t\a");
+			ctx.arg = arg;
 			operation = isa_opcode(opcodes, token);
-			if (operation != NULL) {
-				if (operation->n_args == 1) {
-					printf("%d\n",pushval);
-					printf("%s", arg);
-				}
-			} else {
-				print_instr_error(INVALID_INSTRUCTION, line_number, token);
-			}
+			if (operation != NULL)
+				error_processor(run_operation(operation, arg), line_number, ctx);
+			else
+				error_processor(INVALID_INSTRUCTION, line_number, ctx);
 		}
 		line_number++;
 	}
-	mega_free(file, line_buffer, opcodes);
+	mega_free(ctx);
 	return (0);
 }

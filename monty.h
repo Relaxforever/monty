@@ -45,6 +45,15 @@ typedef struct menu_s
 		struct menu_s *next;
 } menu;
 
+typedef struct ctx_s
+{
+	char *token;
+	char *arg;
+	FILE *file;
+	char *buffer;
+	menu **head;
+} context;
+
 int has_args(char *token);
 int isa_number(char *token);
 int run_interpreter(char *filename);
@@ -54,7 +63,11 @@ void push_numberstack(stack_t **head, unsigned int line_number);
 int file_processor(FILE *file);
 void free_opcodelist(menu *head);
 menu *isa_opcode(menu **oplist, char *token);
-void mega_free(FILE *file, char *buffer, menu **head);
+void mega_free(context ctx);
+int run_operation(menu *operation, char *argument);
+char *_memset(char *s, char b, unsigned int n);
+void *_calloc(unsigned int nmemb, unsigned int size);
+void error_processor(int oper_errno, unsigned int line, context ctx);
 int pushval;
 
 #endif

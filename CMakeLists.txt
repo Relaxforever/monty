@@ -17,4 +17,7 @@ add_executable(monty
         isa_number.c
         is_opcode.c
         mega_free.c
+        run_operation.c
+        _calloc.c
+        error_processor.c
 )

@@ -1,12 +1,14 @@
 #include "monty.h"
 
-void mega_free(FILE *file, char *buffer, menu **head)
+void mega_free(context ctx)
 {
-	if (file != NULL)
-		fclose(file);
-	if (buffer != NULL)
-		free(buffer);
-	if (head != NULL)
+	menu **head = ctx.head;
+
+	if (ctx.file != NULL)
+		fclose(ctx.file);
+	if (ctx.buffer != NULL)
+		free(ctx.buffer);
+	if (ctx.head != NULL)
 	{
 		free_opcodelist(*head);
 		free(head);
