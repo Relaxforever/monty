@@ -45,6 +45,7 @@ int file_processor(FILE *file)
 		line_number++;
 		ctx.line = line_number;
 	}
+	ctx.buffer = line_buffer;
 	mega_free();
 	return (0);
 }
