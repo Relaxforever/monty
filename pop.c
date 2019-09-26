@@ -20,6 +20,6 @@ void _pop(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		print_stack_error(PINT_STACK_EMPTY, line_number);
+		print_stack_error(POP_STACK_EMPTY, line_number);
 	}
 }
