@@ -2,7 +2,7 @@
 #define _MONTY_H_
 #include <stdlib.h>
 #include <stdio.h>
-extern int pushval;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -47,6 +47,7 @@ typedef struct menu_s
 
 typedef struct ctx_s
 {
+	unsigned int line;
 	char *token;
 	char *arg;
 	FILE *file;
@@ -54,6 +55,7 @@ typedef struct ctx_s
 	menu **head;
 } context;
 
+extern context ctx;
 int has_args(char *token);
 int isa_number(char *token);
 int run_interpreter(char *filename);
@@ -63,11 +65,11 @@ void push_numberstack(stack_t **head, unsigned int line_number);
 int file_processor(FILE *file);
 void free_opcodelist(menu *head);
 menu *isa_opcode(menu **oplist, char *token);
-void mega_free(context ctx);
+void mega_free(void);
 int run_operation(menu *operation, char *argument);
 char *_memset(char *s, char b, unsigned int n);
 void *_calloc(unsigned int nmemb, unsigned int size);
-void error_processor(int oper_errno, unsigned int line, context ctx);
-int pushval;
+void error_processor(int oper_errno, unsigned int line);
+context ctx;
 
 #endif

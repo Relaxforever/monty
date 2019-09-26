@@ -1,6 +1,6 @@
 #include "monty.h"
 
-void mega_free(context ctx)
+void mega_free(void)
 {
 	menu **head = ctx.head;
 

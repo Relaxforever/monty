@@ -28,7 +28,7 @@ void push_numberstack(stack_t **head, unsigned int line_number)
 		ptr->next = NULL;
 	}
 	ptr->prev = NULL;
-	ptr->n = pushval;
+	ptr->n = ctx.line;
 	*head = ptr;
 }
 /**

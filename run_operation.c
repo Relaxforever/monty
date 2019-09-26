@@ -3,6 +3,6 @@
 
 int run_operation(menu *operation, char *argument)
 {
-	printf("OPCODE: %s | ARGUMENT: %s\n", operation->opcode, argument);
+	printf("LINE: %u OPCODE: %s | ARGUMENT: %s\n", ctx.line, operation->opcode, argument);
 	return (0);
 }

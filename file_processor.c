@@ -5,10 +5,9 @@
 int file_processor(FILE *file)
 {
 	menu **opcodes, *operation;
-	context ctx;
 	size_t getline_size = 0;
 	char *line_buffer = NULL, *token, *arg;
-	unsigned int line_number = 0;
+	unsigned int line_number = 1;
 
 	opcodes = opcode_list();
 	if (opcodes == NULL)
@@ -16,11 +15,14 @@ int file_processor(FILE *file)
 		fclose(file);
 		print_file_error(MALLOC_FAILURE, NULL);
 	}
+
 	ctx.token = NULL;
 	ctx.arg = NULL;
 	ctx.file = file;
 	ctx.buffer = NULL;
 	ctx.head = opcodes;
+	ctx.line = line_number;
+
 	while (getline(&line_buffer, &getline_size, file) != EOF)
 	{
 		ctx.buffer = line_buffer;
@@ -32,12 +34,13 @@ int file_processor(FILE *file)
 			ctx.arg = arg;
 			operation = isa_opcode(opcodes, token);
 			if (operation != NULL)
-				error_processor(run_operation(operation, arg), line_number, ctx);
+				error_processor(run_operation(operation, arg), line_number);
 			else
-				error_processor(INVALID_INSTRUCTION, line_number, ctx);
+				error_processor(INVALID_INSTRUCTION, line_number);
 		}
 		line_number++;
+		ctx.line = line_number;
 	}
-	mega_free(ctx);
+	mega_free();
 	return (0);
 }
