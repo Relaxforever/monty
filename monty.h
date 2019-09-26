@@ -35,7 +35,7 @@ typedef struct instruction_s
 * @opcode: the opcode
 * @n_args: the # of args
 * @next: points to the next list
-*
+* @f: the functions
 * Description: the menu that will be used to check if the f exist.
 */
 typedef struct menu_s
@@ -71,6 +71,7 @@ char *_memset(char *s, char b, unsigned int n);
 void *_calloc(unsigned int nmemb, unsigned int size);
 void error_processor(int oper_errno, unsigned int line);
 menu **failed_head(menu **head);
+void free_stack(stack_t *head);
 context ctx;
 
 #endif
