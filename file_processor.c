@@ -1,7 +1,11 @@
 #include "monty.h"
 #include "monty_errors.h"
 #include <string.h>
-
+/**
+* file_processor - file processor
+* @file: doing the file
+* Return: 0 perro
+*/
 int file_processor(FILE *file)
 {
 	menu **opcodes, *operation;
@@ -28,7 +32,7 @@ int file_processor(FILE *file)
 		ctx.buffer = line_buffer;
 		token = strtok(line_buffer, " \n\r\t\a");
 		ctx.token = token;
-		if (token != NULL) //CHECK IF IS NOT A BLANK
+		if (token != NULL) /*CHECK IF IS NOT A BLANK*/
 		{
 			arg = strtok(NULL, " \n\r\t\a");
 			ctx.arg = arg;

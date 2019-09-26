@@ -1,6 +1,10 @@
 #include "monty.h"
 #include "monty_errors.h"
-
+/**
+* error_processor - processes errors
+* @oper_errno: Open errno
+* @line: lines for errors
+*/
 void error_processor(int oper_errno, unsigned int line)
 {
 	switch (oper_errno)

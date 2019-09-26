@@ -17,5 +17,4 @@ void print_stack_error(int errno, unsigned int line);
 void print_short_failures(int errno, unsigned int line);
 void print_instr_error(int errno, unsigned int line);
 
-
-#endif 
+#endif

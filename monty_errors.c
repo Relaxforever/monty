@@ -87,7 +87,6 @@ void print_short_failures(int errno, unsigned int line)
 * print_instr_error - errors related to instructions
 * @errno: the number of the error
 * @line: the line number
-* @opcode: the name of the instruction
 */
 void print_instr_error(int errno, unsigned int line)
 {

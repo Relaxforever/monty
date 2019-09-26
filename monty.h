@@ -1,4 +1,5 @@
 #ifndef _MONTY_H_
+#ifndef _MONTY_H_
 #define _MONTY_H_
 #include <stdlib.h>
 #include <stdio.h>
@@ -45,7 +46,16 @@ typedef struct menu_s
 		struct menu_s *next;
 		void (*f)(stack_t **stack, unsigned int line_number);
 } menu;
-
+/**
+* struct ctx_s - the mega supra structure
+* @line: the line number
+* @token: the first token
+* @arg: the second token.
+* @file: the file
+* @buffer: the buffer
+* @head: the list head
+* @stack: the stack
+*/
 typedef struct ctx_s
 {
 	unsigned int line;
@@ -53,6 +63,7 @@ typedef struct ctx_s
 	char *arg;
 	FILE *file;
 	char *buffer;
+
 	menu **head;
 	stack_t **stack;
 } context;

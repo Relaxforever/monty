@@ -1,7 +1,11 @@
 #include "monty_errors.h"
 #include "monty.h"
 #include "operations.h"
-
+/**
+* _add - adds two numbers
+* @head: the lsit head
+* @line_number: the line number
+*/
 void _add(stack_t **head, unsigned int line_number)
 {
 	int a, b, ans;

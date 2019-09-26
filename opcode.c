@@ -5,6 +5,7 @@
 * @h: the head of the list
 * @o: the name of the opcode
 * @n: the number of arguments
+* @f: function pointer.
 * Return: the address of the created list
 */
 menu *create(menu **h, char *o, int n, void (*f)(stack_t **s, unsigned int l))
@@ -46,7 +47,7 @@ menu **opcode_list(void)
 
 	head = malloc(sizeof(menu *) * 1);
 	*head = NULL;
-	if (create(head, "push", 1,_push) == NULL)
+	if (create(head, "push", 1, _push) == NULL)
 		failed_head(head);
 	if (create(head, "pall", 0, _pall) == NULL)
 		failed_head(head);

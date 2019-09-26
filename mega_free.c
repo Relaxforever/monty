@@ -1,5 +1,8 @@
 #include "monty.h"
-
+/**
+* mega_free - Dabs on all the memory leaks
+* Return: my Ego.
+*/
 void mega_free(void)
 {
 	menu **head = ctx.head;
