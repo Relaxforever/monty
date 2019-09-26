@@ -10,14 +10,17 @@ void print_file_error(int errno, char *filename)
 		switch (errno)
 		{
 				case FILE_NOT_FOUND:
-										fprintf(stderr, "USAGE: monty file\n");
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "USAGE: monty file\n");
+					mega_free();
+					exit(EXIT_FAILURE);
 				case CANT_OPEN_FILE:
-										fprintf(stderr, "Error: Can't open file %s\n", filename);
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "Error: Can't open file %s\n", filename);
+					mega_free();
+					exit(EXIT_FAILURE);
 				case MALLOC_FAILURE:
-										fprintf(stderr, "Error: malloc failed\n");
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "Error: malloc failed\n");
+					mega_free();
+					exit(EXIT_FAILURE);
 				default:
 					break;
 		}
@@ -48,11 +51,13 @@ void print_stack_error(int errno, unsigned int line)
 		switch (errno)
 		{
 				case PINT_STACK_EMPTY:
-										fprintf(stderr, "L%u: can't pint, stack empty\n", line);
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "L%u: can't pint, stack empty\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
 				case POP_STACK_EMPTY:
-										fprintf(stderr, "L%u: can't pop an empty stack\n", line);
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "L%u: can't pop an empty stack\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
 				default:
 					break;
 		}
@@ -67,11 +72,13 @@ void print_short_failures(int errno, unsigned int line)
 		switch (errno)
 		{
 				case SWAP_SHORT_FAILURE:
-										fprintf(stderr, "L%u: can't swap, stack too short\n", line);
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "L%u: can't swap, stack too short\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
 				case ADD_SHORT_FAILURE:
-										fprintf(stderr, "L%u: can't add, stack too short\n", line);
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "L%u: can't add, stack too short\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
 				default:
 					break;
 		}
@@ -87,8 +94,9 @@ void print_instr_error(int errno, unsigned int line)
 		switch (errno)
 		{
 				case INVALID_INSTRUCTION:
-										fprintf(stderr, "L%u: unknown instruction %s\n", line, ctx.token);
-										exit(EXIT_FAILURE);
+					fprintf(stderr, "L%u: unknown instruction %s\n", line, ctx.token);
+					mega_free();
+					exit(EXIT_FAILURE);
 				default:
 					break;
 		}

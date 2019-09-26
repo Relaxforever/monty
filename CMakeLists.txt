@@ -13,6 +13,7 @@ add_executable(monty
         run_interpreter.c
         opcode.c
         push.c
+        pall.c
         file_processor.c
         isa_number.c
         is_opcode.c
