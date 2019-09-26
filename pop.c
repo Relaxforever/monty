@@ -8,15 +8,22 @@
 */
 void _pop(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *tmp = *stack;
 
+	(void) line_number;
 	if (*stack != NULL)
 	{
-		(void) line_number;
-		tmp = *stack;
-		*stack = tmp->next;
-		(*stack)->prev = NULL;
-		free(tmp);
+		if (tmp->next != NULL)
+		{
+			(tmp->next)->prev = NULL;
+			*stack = tmp->next;
+			free(tmp);
+		}
+		else
+		{
+			*stack = NULL;
+			free(tmp);
+		}
 	}
 	else
 	{
