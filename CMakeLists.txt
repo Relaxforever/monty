@@ -20,4 +20,5 @@ add_executable(monty
         run_operation.c
         _calloc.c
         error_processor.c
+        operations.h
 )
