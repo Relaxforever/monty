@@ -1,5 +1,5 @@
-#ifndef MONTY_OPERATIONS_H
-#define MONTY_OPERATIONS_H
+#ifndef OPERATIONS_H
+#define OPERATIONS_H
 
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);

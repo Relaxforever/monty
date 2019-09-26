@@ -1,38 +1,39 @@
 #include "monty.h"
-
+#include "operations.h"
 /**
-* create_opstruct - creates the opcode structure
-* @head: the head of the list
-* @opname: the name of the opcode
-* @n_args: the number of arguments
+* create - creates the opcode structure
+* @h: the head of the list
+* @o: the name of the opcode
+* @n: the number of arguments
 * Return: the address of the created list
 */
-menu *create_opstruct(menu **head, char *opname, int n_args)
+menu *create(menu **h, char *o, int n, void (*f)(stack_t **s, unsigned int l))
 {
 		menu *ptr;
 		menu *tmp;
 		unsigned int cont;
 
-	if (head == NULL)
+	if (h == NULL)
 		return (NULL);
 	ptr = malloc(sizeof(menu));
 	if (ptr == NULL)
 		return (NULL);
-	ptr->opcode = opname;
-	ptr->n_args = n_args;
+	ptr->opcode = o;
+	ptr->n_args = n;
+	ptr->f = f;
 	ptr->next = NULL;
-	if (*head == NULL)
+	if (*h == NULL)
 	{
-		*head = ptr;
-		return (*head);
+		*h = ptr;
+		return (*h);
 	}
-	tmp = *head;
+	tmp = *h;
 	for (cont = 0; tmp->next != NULL; cont++)
 	{
 		tmp = tmp->next;
 	}
 	tmp->next = ptr;
-	return (*head);
+	return (*h);
 }
 /**
 * opcode_list - creates the oplist
@@ -45,41 +46,20 @@ menu **opcode_list(void)
 
 	head = malloc(sizeof(menu *) * 1);
 	*head = NULL;
-	if (create_opstruct(head, "push", 1) == NULL)
-	{
-		free_opcodelist(*head);
-		return (NULL);
-	}
-	if (create_opstruct(head, "pall", 0) == NULL)
-	{
-		free_opcodelist(*head);
-		return (NULL);
-	}
-	if (create_opstruct(head, "pint", 0) == NULL)
-	{
-		free_opcodelist(*head);
-		return (NULL);
-	}
-	if (create_opstruct(head, "pop", 0) == NULL)
-	{
-		free_opcodelist(*head);
-		return (NULL);
-	}
-	if (create_opstruct(head, "swap", 0) == NULL)
-	{
-		free_opcodelist(*head);
-		return (NULL);
-	}
-	if (create_opstruct(head, "add", 0) == NULL)
-	{
-		free_opcodelist(*head);
-		return (NULL);
-	}
-	if (create_opstruct(head, "nop", 0) == NULL)
-	{
-		free_opcodelist(*head);
-		return (NULL);
-	}
+	if (create(head, "push", 1,_push) == NULL)
+		failed_head(head);
+	if (create(head, "pall", 0, _pall) == NULL)
+		failed_head(head);
+	if (create(head, "pint", 0, _pint) == NULL)
+		failed_head(head);
+	if (create(head, "pop", 0, _pop) == NULL)
+		failed_head(head);
+	if (create(head, "swap", 0, _swap) == NULL)
+		failed_head(head);
+	if (create(head, "add", 0, _add) == NULL)
+		failed_head(head);
+	if (create(head, "nop", 0, _nop) == NULL)
+		failed_head(head);
 	return (head);
 }
 /**
@@ -98,3 +78,28 @@ void free_opcodelist(menu *head)
 	}
 	head = NULL;
 }
+/**
+* Failed_head - check if head failed
+* @head: the list
+* Return: NULL IF failed
+**/
+menu **failed_head(menu **head)
+{
+	free_opcodelist(*head);
+	return (NULL);
+}
+/*
+*int main(void)
+*{
+*	menu **alo;
+*	int cont;
+*
+*	alo = opcode_list();
+*	for (cont = 0; (*alo) != NULL; cont++)
+*	{
+*		printf("%s and %d\n",(*alo)->opcode, (*alo)->n_args);
+*		(*alo) = (*alo)->next;
+*	}
+*	return (0);
+*}
+*/

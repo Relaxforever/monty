@@ -43,6 +43,7 @@ typedef struct menu_s
 		char *opcode;
 		int n_args;
 		struct menu_s *next;
+		void (*f)(stack_t **stack, unsigned int line_number);
 } menu;
 
 typedef struct ctx_s
@@ -69,6 +70,7 @@ int run_operation(menu *operation, char *argument);
 char *_memset(char *s, char b, unsigned int n);
 void *_calloc(unsigned int nmemb, unsigned int size);
 void error_processor(int oper_errno, unsigned int line);
+menu **failed_head(menu **head);
 context ctx;
 
 #endif

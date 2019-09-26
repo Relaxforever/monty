@@ -1,12 +1,13 @@
 #include "monty.h"
 #include "monty_errors.h"
+#include "operations.h"
 /**
 *push_numberstack - adds a node at the beginning of the list
 *@head: the head of the node
 *@line_number: the line number that will be added.
 *Return: the list with the new node
 */
-void push_numberstack(stack_t **head, unsigned int line_number)
+void _push(stack_t **head, unsigned int line_number)
 {
 	stack_t *ptr;
 
@@ -36,7 +37,7 @@ void push_numberstack(stack_t **head, unsigned int line_number)
 *@head: the list
 *@line_number: the line number.
 */
-void pall_numberstack(stack_t **head, unsigned int line_number)
+void _pall(stack_t **head, unsigned int line_number)
 {
 	int cont = 0;
 	stack_t *tmp;
