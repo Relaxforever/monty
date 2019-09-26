@@ -10,7 +10,7 @@ void _add(stack_t **head, unsigned int line_number)
 {
 	int a, b, ans;
 
-	if (head == NULL || (*head)->next == NULL)
+	if ((*head) == NULL || (*head)->next == NULL)
 		error_processor(ADD_SHORT_FAILURE, line_number);
 
 	a = (*head)->n;
