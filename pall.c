@@ -14,7 +14,7 @@ void _pall(stack_t **head, unsigned int line_number)
 	tmp = *head;
 	if (tmp != NULL)
 	{
-		for (tmp = 0; tmp != NULL; cont++)
+		for (cont = 0; tmp != NULL; cont++)
 		{
 			printf("%d\n", tmp->n);
 			tmp = tmp->next;
