@@ -1,6 +1,6 @@
 #include "monty.h"
 #include "monty_errors.h"
-#include "operations.h"
+
 /**
 *_push - adds a node at the beginning of the list
 *@head: the head of the node
@@ -19,20 +19,15 @@ void _push(stack_t **head, unsigned int line_number)
 		{
 			print_file_error(MALLOC_FAILURE, NULL);
 		}
+		ptr->n = atoi(ctx.arg);
+		ptr->next = (*head);
+		ptr->prev = NULL;
 		if (*head != NULL)
 		{
 			(*head)->prev = ptr;
-			ptr->next = *head;
-			(*head)->next = NULL;
 		}
-		if (*head == NULL)
-		{
-			*head = ptr;
-			ptr->next = NULL;
-		}
-		ptr->prev = NULL;
-		ptr->n = atoi(ctx.arg);
 		*head = ptr;
 	}
-	print_arg_error(PUSH_FAILURE, line_number);
+	else
+		print_arg_error(PUSH_FAILURE, line_number);
 }

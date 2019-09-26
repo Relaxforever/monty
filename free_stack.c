@@ -1,3 +1,4 @@
+#include "monty.h"
 /**
 *free_stack - frees all the list
 *@head: the head that will be given
