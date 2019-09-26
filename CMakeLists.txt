@@ -15,4 +15,6 @@ add_executable(monty
         push.c
         file_processor.c
         isa_number.c
+        is_opcode.c
+        mega_free.c
 )

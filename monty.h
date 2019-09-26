@@ -54,6 +54,7 @@ void push_numberstack(stack_t **head, unsigned int line_number);
 int file_processor(FILE *file);
 void free_opcodelist(menu *head);
 menu *isa_opcode(menu **oplist, char *token);
+void mega_free(FILE *file, char *buffer, menu **head);
 int pushval;
 
 #endif
