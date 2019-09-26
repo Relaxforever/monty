@@ -1,6 +1,10 @@
 #include "monty_errors.h"
 #include "monty.h"
-
+/**
+* _swap - swaps the whole thing
+* @head: the stack list
+* @line_number: the number of lines
+*/
 void _swap(stack_t **head, unsigned int line_number)
 {
 	stack_t *top, *second, *link;

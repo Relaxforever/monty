@@ -4,7 +4,11 @@
 #include <unistd.h>
 
 #define FILE_ERROR -1
-
+/**
+* run_interpreter - runs the interpreter
+* @filename: the filename
+* Return: Always Zero!
+*/
 int run_interpreter(char *filename)
 {
 	extern int errno;
