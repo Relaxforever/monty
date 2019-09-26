@@ -11,5 +11,5 @@ void _pint(stack_t **head, unsigned int line_number)
 
 	if (ptr == NULL)
 		error_processor(PINT_STACK_EMPTY, line_number);
-	printf("%d", ptr->n);
+	printf("%d\n", ptr->n);
 }

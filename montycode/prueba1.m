@@ -1,12 +1,9 @@
-push 1
-push 2-2-4-5
-push 3 su mama se casó de tenis
+push 2
+push 3
+push 13
 
-push 4
-pall
-                                              push                                                 -666
-esternocleidomastoideo
 
-pop
+
+push -6
 pint
-                       swap
+pall
