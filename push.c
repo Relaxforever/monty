@@ -29,6 +29,6 @@ void _push(stack_t **head, unsigned int line_number)
 		ptr->next = NULL;
 	}
 	ptr->prev = NULL;
-	ptr->n = ctx.line;
+	ptr->n = ctx.arg;
 	*head = ptr;
 }
