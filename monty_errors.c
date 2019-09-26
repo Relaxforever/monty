@@ -82,12 +82,12 @@ void print_short_failures(int errno, unsigned int line)
 * @line: the line number
 * @opcode: the name of the instruction
 */
-void print_instr_error(int errno, unsigned int line, char *opcode)
+void print_instr_error(int errno, unsigned int line)
 {
 		switch (errno)
 		{
 				case INVALID_INSTRUCTION:
-										fprintf(stderr, "L%u: unknown instruction %s\n", line, opcode);
+										fprintf(stderr, "L%u: unknown instruction %s\n", line, ctx.token);
 										exit(EXIT_FAILURE);
 				default:
 					break;
