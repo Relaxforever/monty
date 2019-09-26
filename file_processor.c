@@ -15,14 +15,12 @@ int file_processor(FILE *file)
 		fclose(file);
 		print_file_error(MALLOC_FAILURE, NULL);
 	}
-
 	ctx.token = NULL;
 	ctx.arg = NULL;
 	ctx.file = file;
 	ctx.buffer = NULL;
 	ctx.head = opcodes;
 	ctx.line = line_number;
-
 	while (getline(&line_buffer, &getline_size, file) != EOF)
 	{
 		ctx.buffer = line_buffer;
