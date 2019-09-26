@@ -54,6 +54,7 @@ typedef struct ctx_s
 	FILE *file;
 	char *buffer;
 	menu **head;
+	stack_t **stack;
 } context;
 
 extern context ctx;

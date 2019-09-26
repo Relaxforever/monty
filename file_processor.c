@@ -8,9 +8,10 @@ int file_processor(FILE *file)
 	size_t getline_size = 0;
 	char *line_buffer = NULL, *token, *arg;
 	unsigned int line_number = 1;
+	stack_t **st = _calloc(1, sizeof(stack_t *));
 
 	opcodes = opcode_list();
-	if (opcodes == NULL)
+	if (opcodes == NULL || st == NULL)
 	{
 		fclose(file);
 		print_file_error(MALLOC_FAILURE, NULL);
@@ -21,6 +22,7 @@ int file_processor(FILE *file)
 	ctx.buffer = NULL;
 	ctx.head = opcodes;
 	ctx.line = line_number;
+	ctx.stack = st;
 	while (getline(&line_buffer, &getline_size, file) != EOF)
 	{
 		ctx.buffer = line_buffer;
