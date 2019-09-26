@@ -17,7 +17,7 @@ int isa_number(char *token)
 	{
 		for (i = 1; token[i] != '\0'; i++)
 		{
-			if (token[i] >= zero && token[i] <= nine)
+			if ((token[i] >= zero && token[i] <= nine) || token[i] == min)
 			{
 				continue;
 			}
