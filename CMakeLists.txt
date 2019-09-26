@@ -14,6 +14,7 @@ add_executable(monty
         opcode.c
         push.c
         pall.c
+        pint.c
         file_processor.c
         isa_number.c
         is_opcode.c
