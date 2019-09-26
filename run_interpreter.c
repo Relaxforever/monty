@@ -20,6 +20,8 @@ int run_interpreter(char *filename)
 	else
 	{
 		mfile = fopen(filename, "r");
+		if (!mfile)
+			print_file_error(CANT_OPEN_FILE, filename);
 		file_processor_ret = file_processor(mfile);
 		if (file_processor_ret == EXIT_SUCCESS)
 			return (EXIT_SUCCESS);
