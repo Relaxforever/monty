@@ -10,15 +10,14 @@ void _add(stack_t **head, unsigned int line_number)
 {
 	int a, b, ans;
 
-	if (head == NULL || (*head)->next == NULL)
+	if ((*head) == NULL || (*head)->next == NULL)
 		error_processor(ADD_SHORT_FAILURE, line_number);
 
 	a = (*head)->n;
 	b = (*head)->next->n;
 
 	ans = a + b;
-
+	(*head)->next->n = ans;
 	_pop(head, line_number);
-	(*head)->n = ans;
 }
 

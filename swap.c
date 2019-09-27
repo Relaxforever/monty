@@ -7,18 +7,12 @@
 */
 void _swap(stack_t **head, unsigned int line_number)
 {
-	stack_t *top, *second, *link;
+	int top;
 
-	top = *head;
-	second = top->next;
-
-	if (top == NULL || second == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		error_processor(SWAP_SHORT_FAILURE, line_number);
-
-	link = second->next;
-	top->next = link;
-	top->prev = second;
-	second->prev = NULL;
-	second->next = top;
-	*head = second;
+	(void) line_number;
+	top = (*head)->next->n;
+	(*head)->next->n = (*head)->n;
+	(*head)->n = top;
 }
