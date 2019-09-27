@@ -14,12 +14,9 @@ void _mod(stack_t **head, unsigned int line_number)
 		error_processor(DIV_SHORT_FAILURE, line_number);
 	a = (*head)->n;
 	b = (*head)->next->n;
-	if (b == 0)
-		error_processor(DIV_DIVISION_ZERO, line_number);
 	if (a == 0)
-		ans = 0;
-	else
-		ans = b % a;
+		error_processor(DIV_DIVISION_ZERO, line_number);
+	ans = b % a;
 	(*head)->next->n = ans;
 	_pop(head, line_number);
 }
