@@ -11,7 +11,7 @@ void _mod(stack_t **head, unsigned int line_number)
 	int a, b, ans;
 
 	if ((*head) == NULL || (*head)->next == NULL)
-		error_processor(DIV_SHORT_FAILURE, line_number);
+		error_processor(MOD_SHORT_FAILURE, line_number);
 	a = (*head)->n;
 	b = (*head)->next->n;
 	if (a == 0)
