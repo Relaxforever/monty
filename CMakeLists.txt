@@ -19,6 +19,10 @@ add_executable(monty
         pop.c
         nop.c
         add.c
+        mul.c
+        sub.c
+        div.c
+        mod.c
         file_processor.c
         free_stack.c
         isa_number.c
