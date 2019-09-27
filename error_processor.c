@@ -30,6 +30,24 @@ void error_processor(int oper_errno, unsigned int line)
 		case ADD_SHORT_FAILURE:
 			print_short_failures(ADD_SHORT_FAILURE, line);
 			break;
+		case SUB_SHORT_FAILURE:
+			print_short_failures(SUB_SHORT_FAILURE, line);
+			break;
+		case MUL_SHORT_FAILURE:
+			print_short_failures(MUL_SHORT_FAILURE, line);
+			break;
+		case DIV_SHORT_FAILURE:
+			print_short_failures(DIV_SHORT_FAILURE, line);
+			break;
+		case MOD_SHORT_FAILURE:
+			print_short_failures(MOD_SHORT_FAILURE, line);
+			break;
+		case DIV_DIVISION_ZERO:
+			print_instr_error(DIV_DIVISION_ZERO, line);
+			break;
+		case MOD_DIVISION_ZERO:
+			print_instr_error(MOD_DIVISION_ZERO, line);
+			break;
 		default:
 			break;
 	}
