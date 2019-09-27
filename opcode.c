@@ -61,6 +61,14 @@ menu **opcode_list(void)
 		failed_head(head);
 	if (create(head, "nop", 0, _nop) == NULL)
 		failed_head(head);
+	if (create(head, "sub", 0, _sub) == NULL)
+		failed_head(head);
+	if (create(head, "mul", 0, _mul) == NULL)
+		failed_head(head);
+	if (create(head, "div", 0, _div) == NULL)
+		failed_head(head);
+	if (create(head, "mod", 0, _mod) == NULL)
+		failed_head(head);
 	return (head);
 }
 /**

@@ -6,7 +6,8 @@
 * @line: lines for errors
 */
 void error_processor(int oper_errno, unsigned int line)
-{ switch (oper_errno)
+{
+	switch (oper_errno)
 	{ case PUSH_FAILURE:
 			print_arg_error(PUSH_FAILURE, line);
 			break;
@@ -42,9 +43,6 @@ void error_processor(int oper_errno, unsigned int line)
 			break;
 		case DIV_DIVISION_ZERO:
 			print_instr_error(DIV_DIVISION_ZERO, line);
-			break;
-		case MOD_DIVISION_ZERO:
-			print_instr_error(MOD_DIVISION_ZERO, line);
 			break;
 	}
 }
