@@ -10,6 +10,12 @@
 #define POP_STACK_EMPTY 7
 #define SWAP_SHORT_FAILURE 8
 #define ADD_SHORT_FAILURE 9
+#define SUB_SHORT_FAILURE 10
+#define MUL_SHORT_FAILURE 11
+#define MOD_SHORT_FAILURE 12
+#define MOD_DIVISION_ZERO 13
+#define DIV_DIVISION_ZERO 14
+#define DIV_SHORT_FAILURE 15
 
 void print_file_error(int errno, char *filename);
 void print_arg_error(int errno, unsigned int line);

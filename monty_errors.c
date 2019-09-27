@@ -79,6 +79,22 @@ void print_short_failures(int errno, unsigned int line)
 					fprintf(stderr, "L%u: can't add, stack too short\n", line);
 					mega_free();
 					exit(EXIT_FAILURE);
+				case SUB_SHORT_FAILURE:
+					fprintf(stderr, "L%u: can't sub, stack too short\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
+				case DIV_SHORT_FAILURE:
+					fprintf(stderr, "L%u: can't div, stack too short\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
+				case MUL_SHORT_FAILURE:
+					fprintf(stderr, "L%u: can't mul, stack too short\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
+				case MOD_SHORT_FAILURE:
+					fprintf(stderr, "L%u: can't mod, stack too short\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
 				default:
 					break;
 		}
@@ -94,6 +110,14 @@ void print_instr_error(int errno, unsigned int line)
 		{
 				case INVALID_INSTRUCTION:
 					fprintf(stderr, "L%u: unknown instruction %s\n", line, ctx.token);
+					mega_free();
+					exit(EXIT_FAILURE);
+				case DIV_DIVISION_ZERO:
+					fprintf(stderr, "L%u: division by zero\n", line);
+					mega_free();
+					exit(EXIT_FAILURE);
+				case MOD_DIVISION_ZERO:
+					fprintf(stderr, "L%u: division by zero\n", line);
 					mega_free();
 					exit(EXIT_FAILURE);
 				default:
